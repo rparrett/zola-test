@@ -1,5 +1,4 @@
 use bevy::{
-    color::palettes,
     prelude::*,
     render::{
         mesh::Indices, render_asset::RenderAssetUsages,

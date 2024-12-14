@@ -21,5 +21,5 @@ A common effect in games is to have text progressively appear letter-by-letter a
 We can get around this by laying out the entire contents of the text immediately but hiding it and progressively making a portion of it visible.
 
 {% codeblock(name="Bevy 0.14") %}
-{{ snippet(file="typewriter.rs") }}
+{{ snippet(file="typewriter.rs", anchor="content") }}
 {% end %}

@@ -21,5 +21,5 @@ When you load a scene from a glTF and spawn it multiple times, the material hand
 If you want to modify the material properties of only one of these instances, you can clone it, modify it, and add it to the asset server.
 
 {% codeblock(name="Bevy 0.14") %}
-{{ snippet(file="changing_materials.rs", anchor="content") }}
+{{ snippet(file="bevy_0_14/examples/changing_materials.rs", anchor="content") }}
 {% end %}

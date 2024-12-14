@@ -26,7 +26,7 @@ The immediate mode API is useful for quick debugging, but it has some limitation
 If you want to just "spawn a line segment entity," you can use a sprite! A line segment is just a very skinny rectangle, after all.
 
 {% codeblock(name="Bevy 0.14") %}
-{{ snippet(file="drawing_lines_sprite.rs", anchor="content") }}
+{{ snippet(file="bevy_0_14/examples/drawing_lines_sprite.rs", anchor="content") }}
 {% end %}
 
 Another way to do this would be to create a custom [`Mesh`](https://docs.rs/bevy/latest/bevy/render/prelude/struct.Mesh.html). A really handy plugin that takes this approach is [bevy_prototype_lyon](https://github.com/Nilirad/bevy_prototype_lyon). It does tesselation with [lyon](lyon) and supports polylines with nice joinery and other arbitrary 2d shapes.
@@ -34,7 +34,7 @@ Another way to do this would be to create a custom [`Mesh`](https://docs.rs/bevy
 Here's what DIYing it for a line segment looks like:
 
 {% codeblock(name="Bevy 0.14") %}
-{{ snippet(file="drawing_lines_mesh.rs", anchor="content") }}
+{{ snippet(file="bevy_0_14/examples/drawing_lines_mesh.rs", anchor="content") }}
 {% end %}
 
 If you need more power, check out these options from the Bevy's third party ecosystem:

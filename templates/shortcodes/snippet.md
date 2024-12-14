@@ -1,7 +1,7 @@
 {%-if not language-%}
   {%-set language = "rs"-%}
 {%-endif-%}
-{%-set code = load_data(path="snippets/examples/" ~ file)-%}
+{%-set code = load_data(path="snippets/" ~ file)-%}
 {%-if anchor-%}
   {%-set code_lines = code | split(pat="\n")-%}
   {%-set code = ""-%}

@@ -1,7 +1,4 @@
-[package]
-name = "snippets"
-version = "0.1.0"
-edition = "2021"
+[workspace]
 
-[dependencies]
-bevy = "0.14"
+resolver = "2"
+members = ["bevy_0_14"]

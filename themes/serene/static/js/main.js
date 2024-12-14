@@ -5,7 +5,10 @@ function enableThemeToggle() {
   function toggleTheme(theme) {
     if (theme == "dark") document.body.classList.add("dark");
     else document.body.classList.remove("dark");
-    if (hlLink) hlLink.href = `/hl-${theme}.css`;
+    if (hlLink) {
+      hlLink.href =
+        hlLink.href.split("/").slice(0, -1).join("/") + `hl-${theme}.css`;
+    }
     themeToggle.innerHTML =
       theme == "dark"
         ? themeToggle.dataset.sunIcon

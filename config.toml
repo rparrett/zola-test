@@ -48,7 +48,7 @@ id = "rparrett" # Your id / username / handle
 bio = "Person On Internet" # Your bio
 avatar = "avatar.svg" # Your avatar
 links = [ # Your links
-    { name = "GitHub", icon = "github", url = "https://github.com/<your-username>" },
+    { name = "GitHub", icon = "github", url = "https://github.com/rparrett" },
     { name = "Email", icon = "email", url = "mailto:robparrett@gmail.com" },
 ]
 
@@ -87,7 +87,7 @@ outdate_alert_days = 120                                       # How many days w
 outdate_alert_text_before = "This article was last updated "
 outdate_alert_text_after = " days ago and may be out of date."
 
-footer_copyright = "© 2023 Rob Parrett"
+footer_copyright = "© 2024 Rob Parrett"
 footer_credits = true                   # Whether to show "powered by zola and serene" in footer
 
 not_found_title = "404"

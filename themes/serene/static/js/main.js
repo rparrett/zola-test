@@ -7,7 +7,7 @@ function enableThemeToggle() {
     else document.body.classList.remove("dark");
     if (hlLink) {
       hlLink.href =
-        hlLink.href.split("/").slice(0, -1).join("/") + `hl-${theme}.css`;
+        hlLink.href.split("/").slice(0, -1).join("/") + `/hl-${theme}.css`;
     }
     themeToggle.innerHTML =
       theme == "dark"

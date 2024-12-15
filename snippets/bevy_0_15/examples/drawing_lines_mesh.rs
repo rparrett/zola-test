@@ -18,21 +18,6 @@ fn setup_camera(mut commands: Commands) {
 }
 
 // ANCHOR: content
-fn setup(
-    mut commands: Commands,
-    mut meshes: ResMut<Assets<Mesh>>,
-    mut materials: ResMut<Assets<ColorMaterial>>,
-) {
-    commands.spawn((
-        Mesh2d(meshes.add(Mesh::from(LineSegment {
-            start: Vec2::new(0., 0.),
-            end: Vec2::new(100., 200.),
-            thickness: 3.0,
-        }))),
-        MeshMaterial2d(materials.add(ColorMaterial::from(Color::WHITE))),
-    ));
-}
-
 pub struct LineSegment {
     pub start: Vec2,
     pub end: Vec2,
@@ -79,5 +64,20 @@ impl From<LineSegment> for Mesh {
         .with_inserted_attribute(Mesh::ATTRIBUTE_NORMAL, normals)
         .with_inserted_attribute(Mesh::ATTRIBUTE_UV_0, uvs)
     }
+}
+
+fn setup(
+    mut commands: Commands,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<ColorMaterial>>,
+) {
+    commands.spawn((
+        Mesh2d(meshes.add(Mesh::from(LineSegment {
+            start: Vec2::new(0., 0.),
+            end: Vec2::new(100., 200.),
+            thickness: 3.0,
+        }))),
+        MeshMaterial2d(materials.add(ColorMaterial::from(Color::WHITE))),
+    ));
 }
 // ANCHOR_END: content

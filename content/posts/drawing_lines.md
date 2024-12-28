@@ -29,7 +29,7 @@ If you want to just "spawn a line segment entity," you can use a sprite! A line 
 {{ snippet(file="bevy_0_15/examples/drawing_lines_sprite.rs", anchor="content") }}
 {% end %}
 
-Another way to do this would be to create a custom [`Mesh`](https://docs.rs/bevy/latest/bevy/render/prelude/struct.Mesh.html). A really handy plugin that takes this approach is [bevy_prototype_lyon](https://github.com/Nilirad/bevy_prototype_lyon). It does tesselation with [lyon](lyon) and supports polylines with nice joinery and other arbitrary 2d shapes.
+Another way to do this would be to create a custom [`Mesh`](https://docs.rs/bevy/latest/bevy/render/prelude/struct.Mesh.html). A really handy plugin that takes this approach is [bevy_prototype_lyon](https://github.com/Nilirad/bevy_prototype_lyon). It does tesselation with [lyon](https://github.com/nical/lyon) and supports polylines with nice joinery and other arbitrary 2d shapes.
 
 Here's what DIYing it for a simple line segment looks like:
 

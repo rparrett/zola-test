@@ -9,6 +9,7 @@ fn setup_scene(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
+    // Ground
     commands.spawn(PbrBundle {
         mesh: meshes.add(Circle::new(4.0)),
         material: materials.add(Color::WHITE),

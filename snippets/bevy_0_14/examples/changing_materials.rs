@@ -38,7 +38,6 @@ fn setup_scene(
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
-        .init_resource::<RedMaterial>()
         .add_systems(Startup, (setup_scene, setup))
         .add_systems(PostUpdate, decorate_red_fox)
         .run();
@@ -48,22 +47,12 @@ fn main() {
 #[derive(Component)]
 struct RedFox;
 
-#[derive(Resource)]
-struct RedMaterial(Handle<StandardMaterial>);
-impl FromWorld for RedMaterial {
-    fn from_world(world: &mut World) -> Self {
-        let mut materials = world.resource_mut::<Assets<StandardMaterial>>();
-        let red: Color = basic::RED.into();
-        Self(materials.add(StandardMaterial::from(red)))
-    }
-}
-
 fn decorate_red_fox(
     mut events: EventReader<SceneInstanceReady>,
     instances: Query<&SceneInstance, With<RedFox>>,
     spawner: Res<SceneSpawner>,
-    mut material_query: Query<&mut Handle<StandardMaterial>>,
-    red_material: Res<RedMaterial>,
+    mut material_handles: Query<&mut Handle<StandardMaterial>>,
+    mut material_assets: ResMut<Assets<StandardMaterial>>,
 ) {
     for event in events.read() {
         let Ok(instance) = instances.get(event.parent) else {
@@ -71,13 +60,29 @@ fn decorate_red_fox(
         };
 
         for instance_entity in spawner.iter_instance_entities(**instance) {
-            let Ok(mut original_material) =
-                material_query.get_mut(instance_entity)
+            let Ok(mut original_material_handle) =
+                material_handles.get_mut(instance_entity)
             else {
                 continue;
             };
 
-            *original_material = red_material.0.clone();
+            let Some(original_material_asset) =
+                material_assets.get(&*original_material_handle)
+            else {
+                continue;
+            };
+
+            // This creates a new material asset every time this code runs, so
+            // potentially multiple new distinct material assets for every `RedFox`
+            // you spawn.
+            //
+            // This can be a performance concern, so you may want to find a way to
+            // reuse these materials.
+
+            let mut new_material = original_material_asset.clone();
+            new_material.base_color = basic::RED.into();
+
+            *original_material_handle = material_assets.add(new_material);
         }
     }
 }

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://rparrett.github.io/zola-test/sitemap.xml

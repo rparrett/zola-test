@@ -31,6 +31,10 @@ If you want to just "spawn a line segment entity," you can use a sprite! A line 
 
 Another way to do this would be to create a custom [`Mesh`](https://docs.rs/bevy/latest/bevy/render/prelude/struct.Mesh.html). A really handy plugin that takes this approach is [bevy_prototype_lyon](https://github.com/Nilirad/bevy_prototype_lyon). It does tesselation with [lyon](https://github.com/nical/lyon) and supports polylines with nice joinery and other arbitrary 2d shapes.
 
+{% note(header='Note') %}
+Creating a unique mesh for each line segment you want to draw will be less performant that using sprites, because Bevy won't be able to use automatic batching.
+{% end %}
+
 Here's what DIYing it for a simple line segment looks like:
 
 {% codeblock(name="Bevy 0.15") %}
